@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEUX ALEATOIRE</title>
+    <script>
+        function entierAleatoire(min, max)
+{
+ return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+//Utilisation
+//La variable contient un nombre aléatoire compris entre 1 et 50
+var entier = entierAleatoire(1, 100);
+var resultat=false;
+var tentative=0;
+var reste=0;
+var ResultatNiveau2=false;
+var ResultatNiveau3=false;
+var nom=prompt("entrer votre nom");
+for(var i=0; i<=4; i++){
+    var valeursaisie=parseInt(prompt("Chercher la valeur dans l'intervalle [1 ; 100] : "));
+if(entier==valeursaisie){
+    resultat=true;
+    tentative=i+1;
+    break;
+}else{
+    if(entier<valeursaisie){
+        reste=4-i;
+        alert('nombre trop grand');
+        alert('il vous reste:'+reste+' tentative');
+    }else{
+        reste=4-i;
+        alert('nombre trop petit');
+        alert('il vous reste:'+reste+' tentative');
+    }
+    
+}
+}
+if(resultat==true){
+    alert('bravo '+nom+' vous avez gagné la valeur est: '+entier+' le nombre de tentative est:'+tentative);
+    alert('passe au niveau 2 ');
+    entier=entierAleatoire(101, 500);
+    for(var j=0; j<=4; j++){
+    var valeursaisie=parseInt(prompt("Chercher la valeur dans l'intervalle [101 ; 500] : "));
+if(entier==valeursaisie){
+    ResultatNiveau2=true;
+    tentative=j+1;
+    break;
+}else{
+    if(entier<valeursaisie){
+        reste=4-j;
+        alert('nombre trop grand');
+        alert('il vous reste:'+reste+' tentative');
+    }else{
+        reste=4-j;
+        alert('nombre trop petit');
+        alert('il vous reste:'+reste+' tentative');
+    }
+    
+}
+
+}
+if(ResultatNiveau2==true){
+    alert('bravo '+nom+' vous avez gagné la valeur est: '+entier+' le nombre de tentative est:'+tentative);
+    alert('passe au niveau 3');
+    entier=entierAleatoire(501, 1000);
+    for(var k=0; k<=4; k++){
+    var valeursaisie=parseInt(prompt("Chercher la valeur dans l'intervalle [501 ; 1000] : "));
+if(entier==valeursaisie){
+    ResultatNiveau3=true;
+    tentative=k+1;
+    break;
+}else{
+    if(entier<valeursaisie){
+        reste=4-k;
+        alert('nombre trop grand');
+        alert('il vous reste:'+reste+' tentative');
+    }else{
+        reste=4-k;
+        alert('nombre trop petit');
+        alert('il vous reste:'+reste+' tentative');
+    }
+    
+}
+
+}if(ResultatNiveau3==true){
+    alert('bravo '+nom+' vous avez gagné la valeur est: '+entier+' le nombre de tentative est:'+tentative);
+    alert('passe au niveau 4');
+}else{
+    alert('vous avez perdu');
+}
+}else{
+    alert('vous avez perdu');
+}
+}else{
+    alert('vous avez perdu');
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
